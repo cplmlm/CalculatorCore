@@ -1,0 +1,58 @@
+﻿<Window x:Class="CalculatorCore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorCore.ViewModel"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Title="计算器" Height="500" Width="460">
+    <Window.DataContext>
+        <local:CalculatorViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="0" >
+            <TextBox x:Name="resultText" Text="{Binding  Path=ResultText, Mode=TwoWay}"  Width="440" Height="70" FontSize="40"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="1" >
+            <Button x:Name="btnPercent"  Command="{Binding Path=PercentCommand}" CommandParameter="{Binding Content,ElementName=btnPercent}"  Width="100"  Height="60" Content="%" FontSize="30"   Margin="5" />
+            <Button x:Name="btnClean"  Command="{Binding Path=CleanCommand}" CommandParameter="{Binding Content,ElementName=btnClean}"  Width="100"  Height="60" Content="C" FontSize="30"   Margin="5" />
+            <Button x:Name="btnDelete"  Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding Content,ElementName=btnDelete}"  Width="100"  Height="60" Content="←" FontSize="30"   Margin="5" />
+            <Button x:Name="btnDivision" Command="{Binding Path=OperatorsCommand}" CommandParameter="{Binding Content,ElementName=btnDivision}" Width="100"  Height="60" Content="÷" FontSize="40"   Margin="5" />
+
+        </WrapPanel>
+        <WrapPanel Grid.Row="2" >
+            <Button x:Name="btnSeven"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnSeven}"  Width="100"  Height="60" Content="7" FontSize="40"   Margin="5" />
+            <Button x:Name="btnEight"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnEight}"  Width="100"  Height="60" Content="8" FontSize="40"   Margin="5" />
+            <Button x:Name="btnNine"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnNine}"  Width="100" Height="60" Content="9" FontSize="40"   Margin="5" />
+            <Button x:Name="btnMultiplication" Command="{Binding Path=OperatorsCommand}" CommandParameter="{Binding Content,ElementName=btnMultiplication}" Width="100" Height="60" Content="x" FontSize="40"   Margin="5" />
+        </WrapPanel>
+        <WrapPanel Grid.Row="3" >
+            <Button x:Name="btnFour"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnFour}" Width="100"  Height="60" Content="4" FontSize="40"   Margin="5" />
+            <Button x:Name="btnFive"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnFive}"  Width="100"  Height="60" Content="5" FontSize="40"   Margin="5" />
+            <Button x:Name="btnSix"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnSix}"  Width="100"  Height="60" Content="6" FontSize="40"   Margin="5" />
+            <Button x:Name="btnSubtraction" Command="{Binding Path=OperatorsCommand}" CommandParameter="{Binding Content,ElementName=btnSubtraction}" Width="100"  Height="60" Content="-" FontSize="40"   Margin="5" />
+        </WrapPanel>
+        <WrapPanel Grid.Row="4" >
+            <Button  x:Name="btnOne"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnOne}" Width="100" Height="60" Content="1" FontSize="40"   Margin="5" />
+            <Button  x:Name="btnTwo"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnTwo}" Width="100" Height="60" Content="2" FontSize="40"   Margin="5" />
+            <Button  x:Name="btnthree"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnthree}" Width="100" Height="60" Content="3" FontSize="40"   Margin="5" />
+            <Button x:Name="btnAddition" Command="{Binding Path=OperatorsCommand}" CommandParameter="{Binding Content,ElementName=btnAddition}"  Width="100" Height="60" Content="+" FontSize="40"   Margin="5" />
+        </WrapPanel>
+        <WrapPanel Grid.Row="5" >
+            <!--<Button x:Name="btnSign" Command="{Binding Path=SignCommand}" CommandParameter="{Binding Content,ElementName=btnSign}" Width="100"  Height="60" Content="+/-" FontSize="40"   Margin="5" />-->
+            <Button x:Name="btnZero"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnZero}"  Width="100"  Height="60" Content="0" FontSize="40"   Margin="5" />
+            <Button x:Name="btnDecimalSeparator"  Command="{Binding Path=NumberCommand}" CommandParameter="{Binding Content,ElementName=btnDecimalSeparator}"  Width="100"  Height="60" Content="."  FontSize="40"   Margin="5" />
+            <Button  Width="209" x:Name="result" Height="60" Content="=" FontSize="40"   Margin="5" Command="{Binding Path=ResultCommand}"/>
+        </WrapPanel>
+    </Grid>
+</Window>
